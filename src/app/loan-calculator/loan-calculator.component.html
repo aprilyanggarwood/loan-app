@@ -9,7 +9,12 @@
     <!-- left card contains the form with fields of loan amount, interest rate, and number of year -->
     <mat-card class="mat-elevation-z0">
       <mat-card-content>
-        <form fxLayout="column" class="loan-form">
+        <form
+          fxLayout="column"
+          class="loan-form"
+          [formGroup]="loanFormCalculator"
+          (ngSubmit)="onSubmit()"
+        >
           <mat-form-field fxFlex appearance="fill">
             <mat-label>Loan Amount</mat-label>
             <input
@@ -25,7 +30,7 @@
             <input
               type="text"
               name="interestRate"
-              placeholder="ex: 4.5"
+              placeholder="ex: 4.50"
               matInput
               formControlName="interestRate"
             />
@@ -42,19 +47,23 @@
           </mat-form-field>
 
           <!-- Submit button -->
-          <button mat-button color="primary">Submit</button>
+          <button
+            mat-raised-button
+            [disabled]="loanFormCalculator.invalid"
+            color="primary"
+          >
+            Submit
+          </button>
         </form>
       </mat-card-content>
     </mat-card>
   </div>
 
   <div fxFlex>
-    <mat-card class="mat-elevation-z0">
+    <mat-card fxLayout="column" class="mat-elevation-z0">
       <mat-card-content>
-        <form fxLayout="column" class="loan-form">
-          <app-monthly-payment></app-monthly-payment>
-          <app-interest></app-interest>
-        </form>
+        <app-monthly-payment></app-monthly-payment>
+        <app-interest></app-interest>
       </mat-card-content>
     </mat-card>
   </div>

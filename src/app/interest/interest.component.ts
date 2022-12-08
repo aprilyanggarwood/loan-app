@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InterestComponent implements OnInit {
 
+  // @Input() interest!: Number;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+

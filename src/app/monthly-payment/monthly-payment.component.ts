@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonthlyPaymentComponent implements OnInit {
 
+    // @Input() monthlyPayment!: number;
+
   constructor() { }
 
   ngOnInit(): void {
