@@ -4,42 +4,58 @@
   </h1>
 </div>
 
-<mat-card>
-  <mat-card-content>
-    <form fxLayout="column" class="loan-form">
-      <mat-form-field fxFlex appearance="fill">
-        <mat-label>Loan Amount</mat-label>
-        <input
-          type="text"
-          name="loanAmount"
-          matInput
-          formControlName="loanAmount"
-        />
-      </mat-form-field>
+<div fxLayout="row wrap">
+  <div fxFlex>
+    <!-- left card contains the form with fields of loan amount, interest rate, and number of year -->
+    <mat-card class="mat-elevation-z0">
+      <mat-card-content>
+        <form fxLayout="column" class="loan-form">
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Loan Amount</mat-label>
+            <input
+              type="text"
+              name="loanAmount"
+              matInput
+              formControlName="loanAmount"
+            />
+          </mat-form-field>
 
-      <mat-form-field fxFlex appearance="fill">
-        <mat-label>Interest Rate</mat-label>
-        <input
-          type="text"
-          name="interestRate"
-          placeholder="ex: 4.5"
-          matInput
-          formControlName="interestRate"
-        />
-      </mat-form-field>
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Interest Rate</mat-label>
+            <input
+              type="text"
+              name="interestRate"
+              placeholder="ex: 4.5"
+              matInput
+              formControlName="interestRate"
+            />
+          </mat-form-field>
 
-      <mat-form-field fxFlex appearance="fill">
-        <mat-label>Number of Years</mat-label>
-        <input
-          type="text"
-          name="numOfYears"
-          matInput
-          formControlName="numOfYears"
-        />
-      </mat-form-field>
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Number of Years</mat-label>
+            <input
+              type="text"
+              name="numOfYears"
+              matInput
+              formControlName="numOfYears"
+            />
+          </mat-form-field>
 
-      <!-- Submit button -->
-      <button mat-button color="primary">Submit</button>
-    </form>
-  </mat-card-content>
-</mat-card>
+          <!-- Submit button -->
+          <button mat-button color="primary">Submit</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div fxFlex>
+    <mat-card class="mat-elevation-z0">
+      <mat-card-content>
+        <form fxLayout="column" class="loan-form">
+          <app-monthly-payment></app-monthly-payment>
+          <app-interest></app-interest>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

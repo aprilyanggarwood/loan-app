@@ -29,6 +29,8 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { LoanCalculatorComponent } from './loan-calculator/loan-calculator.component';
+import { MonthlyPaymentComponent } from './monthly-payment/monthly-payment.component';
+import { InterestComponent } from './interest/interest.component';
 
 
 
@@ -38,7 +40,9 @@ import { LoanCalculatorComponent } from './loan-calculator/loan-calculator.compo
     AppComponent,
     AboutComponent,
     ContactComponent,
-    LoanCalculatorComponent
+    LoanCalculatorComponent,
+    MonthlyPaymentComponent,
+    InterestComponent
   ],
   imports: [
     BrowserModule,
