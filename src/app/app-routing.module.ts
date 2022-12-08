@@ -11,30 +11,26 @@ Resources: Material Design https://material.io
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
-import { BookListComponent } from './book-list/book-list.component';
 import { ContactComponent } from './contact/contact.component';
-import { WishlistComponent } from './wishlist/wishlist.component';
+import { LoanCalculatorComponent } from './loan-calculator/loan-calculator.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: BookListComponent
+    component: LoanCalculatorComponent
   },
   {
-    path: 'book-list',
-    component: BookListComponent
+    path: 'loan_application',
+    component: LoanCalculatorComponent
   },
-  {
-    path: 'contact',
-    component: ContactComponent
-  },
-  {
+    {
     path: 'about',
     component: AboutComponent
   },
   {
-    path: 'wishlist',
-    component: WishlistComponent
+    path: 'contact',
+    component: ContactComponent
   }
 
 ];

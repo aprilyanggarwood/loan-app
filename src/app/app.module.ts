@@ -17,7 +17,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { BookListComponent } from './book-list/book-list.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,13 +24,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTableModule } from '@angular/material/table';
-import { BookDetailsDialogComponent } from './book-details-dialog/book-details-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { WishlistComponent } from './wishlist/wishlist.component';
-import { WishlistCreateComponent } from './wishlist-create/wishlist-create.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { LoanCalculatorComponent } from './loan-calculator/loan-calculator.component';
+
 
 
 
@@ -40,10 +38,7 @@ import { MatInputModule } from '@angular/material/input';
     AppComponent,
     AboutComponent,
     ContactComponent,
-    BookListComponent,
-    BookDetailsDialogComponent,
-    WishlistComponent,
-    WishlistCreateComponent
+    LoanCalculatorComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +54,8 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
