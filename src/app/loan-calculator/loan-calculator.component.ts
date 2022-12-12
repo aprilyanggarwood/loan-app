@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+/*
+ Title: loan-calculator.component.ts
+ Author: Professor Krasso
+ Modified By: April Yang
+ Date: 12/11/2022
+ Description: Assignment 8.3 - Capstone (Build)
+ Resources: Material Design https://material.io
+*/
+
+
+
 
 @Component({
   selector: 'app-loan-calculator',
