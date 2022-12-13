@@ -9,7 +9,7 @@
 
 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-monthly-payment',
@@ -18,9 +18,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonthlyPaymentComponent implements OnInit {
 
-    // @Input() monthlyPayment!: number;
+    @Input() monthlyPayment!: number;
 
   constructor() { }
+
 
   ngOnInit(): void {
   }

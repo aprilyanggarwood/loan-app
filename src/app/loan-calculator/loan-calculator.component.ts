@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder} from '@angular/forms';
 
 /*
  Title: loan-calculator.component.ts
@@ -25,7 +25,7 @@ export class LoanCalculatorComponent implements OnInit {
   monthlyPayment: number = 0;
   interest: number = 0;
 
-   loanApp: string;
+  loanApp: string;
 
    /* Initialize Form */
   constructor(private fb: FormBuilder) {
@@ -34,9 +34,9 @@ export class LoanCalculatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loanFormCalculator = this.fb.group({
-        loanAmount: [ ''],
-      interestRate: [ ''],
-      numOfYears: [ '']
+      loanAmount: [''],
+      interestRate: [''],
+      numOfYears: ['']
 
 
       // loanAmount: [ '', [ Validators.required, Validators.pattern("^[0-9]*$") ] ],
@@ -50,7 +50,7 @@ export class LoanCalculatorComponent implements OnInit {
 onSubmit(){
   const formValues = this.loanFormCalculator.value;
   const loanAmount = parseFloat(formValues.loanAmount);
-  const interestRate = parseFloat(formValues.interestRate.toFixed(2));
+  const interestRate = parseFloat(formValues.interestRate);
   const numOfYears = parseFloat(formValues.numOfYears);
 
   /* variables  for loan formula calculating */
@@ -59,24 +59,24 @@ onSubmit(){
 
   /* Loan rate formula */
   this.monthlyPayment = (loanAmount * (ratePerPeriod * Math.pow((ratePerPeriod + 1), numOfMonths))) / (Math.pow((1 + ratePerPeriod), numOfMonths) - 1);
-  this.interest = (parseFloat(this.monthlyPayment.toFixed(2)) * numOfMonths) - loanAmount;
-
-// Function to clear entries
-  // clearEntries(){
-  //   this.monthlyPayment = 0;
-  //   this.interest = 0;
-  //   this.loanFormCalculator.reset();
-
-  // }
-
-// get form(){
-//     return this.loanFormCalculator.controls;
-// }
+  this.interest = (this.monthlyPayment * numOfMonths) - loanAmount;
 
 
+}
 
-    }
+  // Function to clear entries
+  clearEntries(){
+    this.monthlyPayment = 0;
+    this.interest = 0;
+    this.loanFormCalculator.reset();
+
   }
+
+get form(){
+    return this.loanFormCalculator.controls;
+}
+
+}
 
 
 

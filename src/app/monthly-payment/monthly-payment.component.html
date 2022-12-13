@@ -15,7 +15,9 @@
     <mat-card-content>
       <div class="payment-content">
         <!-- Passed In values monthlypayment -->
-        <p><span>$</span></p>
+        <!-- <p><span>$</span></p> -->
+
+        {{ "$" + (monthlyPayment | number : "1.2-2") }}
       </div>
     </mat-card-content>
   </div>
