@@ -86,7 +86,7 @@ onSubmit(){
 
 
   // Function to clear entries
-  clearEntries(){
+  clearEntries() {
     this.monthlyPayment = 0;
     this.interest = 0;
     this.loanFormCalculator.reset();

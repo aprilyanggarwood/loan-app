@@ -8,17 +8,33 @@ Resources: Material Design https://material.io
 -->
 
 <mat-toolbar class="toolbar">
-  <mat-toolbar-row>
+  <mat-toolbar-row style="background-color: #d3a625">
     <!-- <div class="logo">
       <img src="../assets/in-n-out-books-logo.png" height="80" />
     </div> -->
     <div style="width: 80%">
       <div fxLayout="row wrap" fxLayoutAlign="end start">
-        <button mat-button routerLink="/loan_application">
+        <button
+          mat-button
+          routerLink="/loan_application"
+          style="color: #ae0001; font-weight: bold"
+        >
           Loan Application
         </button>
-        <button mat-button routerLink="/contact">Contact Us</button>
-        <button mat-button routerLink="/about">About Us</button>
+        <button
+          mat-button
+          routerLink="/contact"
+          style="color: #ae0001; font-weight: bold"
+        >
+          Contact Us
+        </button>
+        <button
+          mat-button
+          routerLink="/about"
+          style="color: #ae0001; font-weight: bold"
+        >
+          About Us
+        </button>
       </div>
     </div>
   </mat-toolbar-row>
