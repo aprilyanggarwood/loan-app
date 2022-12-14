@@ -20,7 +20,9 @@ export class InterestComponent implements OnInit {
 
   @Input() interest!: number;
 
-  constructor() { }
+  constructor() {
+
+   }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
+
 
 /*
  Title: loan-calculator.component.ts
@@ -25,7 +26,9 @@ export class LoanCalculatorComponent implements OnInit {
   monthlyPayment: number = 0;
   interest: number = 0;
 
+
   loanApp: string;
+
 
    /* Initialize Form */
   constructor(private fb: FormBuilder) {
@@ -34,14 +37,19 @@ export class LoanCalculatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loanFormCalculator = this.fb.group({
-      loanAmount: [''],
-      interestRate: [''],
-      numOfYears: ['']
+      // loanAmount: [''],
+      // interestRate: [''],
+      // numOfYears: ['']
+
+      // loanAmount: [ '', [ Validators.required] ],
+      // interestRate: [ '', [ Validators.required]],
+      // numOfYears: [ '', [ Validators.required]]
 
 
-      // loanAmount: [ '', [ Validators.required, Validators.pattern("^[0-9]*$") ] ],
-      // interestRate: [ '', [ Validators.required, Validators.pattern("^[0-9]*$") ] ],
-      // numOfYears: [ '', [ Validators.required, Validators.pattern("^[0-9]*$") ] ]
+
+      loanAmount: [ '', [ Validators.required, Validators.pattern("^^\\d{1,100}(\\.\\d{1,2})?$")] ],
+      interestRate: [ '', [ Validators.required, Validators.pattern("^^\\d{1,2}(\\.\\d{1,2})?$") ] ],
+      numOfYears: [ '', [ Validators.required, Validators.pattern("^[0-9]*$") ] ]
 
       })
 }
@@ -61,8 +69,21 @@ onSubmit(){
   this.monthlyPayment = (loanAmount * (ratePerPeriod * Math.pow((ratePerPeriod + 1), numOfMonths))) / (Math.pow((1 + ratePerPeriod), numOfMonths) - 1);
   this.interest = (this.monthlyPayment * numOfMonths) - loanAmount;
 
-
 }
+
+
+//  loanAmount!: number;
+//   getErrorMessage() {
+//     if (this.loanAmount.hasError('required')) {
+//       return 'Loan amount is required.';
+//     }
+
+//     return this.loanAmount.hasError('loanAmount') ? 'Not a valid loan amount' : '';
+//   }
+// }
+
+
+
 
   // Function to clear entries
   clearEntries(){
@@ -75,6 +96,8 @@ onSubmit(){
 get form(){
     return this.loanFormCalculator.controls;
 }
+
+
 
 }
 

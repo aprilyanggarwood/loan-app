@@ -62,7 +62,9 @@ import { InterestComponent } from './interest/interest.component';
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
