@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
-
-
 /*
  Title: loan-calculator.component.ts
  Author: Professor Krasso
  Modified By: April Yang
- Date: 12/11/2022
- Description: Assignment 8.3 - Capstone (Build)
+ Date: 12/15/2022
+ Description: Assignment 9.2 - Capstone (Delivery)
  Resources: Material Design https://material.io
 */
 
 
+
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 
 
 @Component({
@@ -37,6 +36,7 @@ export class LoanCalculatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loanFormCalculator = this.fb.group({
+
       // loanAmount: [''],
       // interestRate: [''],
       // numOfYears: ['']
@@ -44,7 +44,6 @@ export class LoanCalculatorComponent implements OnInit {
       // loanAmount: [ '', [ Validators.required] ],
       // interestRate: [ '', [ Validators.required]],
       // numOfYears: [ '', [ Validators.required]]
-
 
 
       loanAmount: [ '', [ Validators.required, Validators.pattern("^^\\d{1,100}(\\.\\d{1,2})?$")] ],
@@ -72,7 +71,14 @@ onSubmit(){
 }
 
 
-//  loanAmount!: number;
+  // loanAmount!: number;
+  // let errors: { [key: string]: any } = loanAmount.errors;
+  // hasError(errorCode: string, path?: loanAmount | (loanAmount | number)[]): boolean {
+
+  // }
+
+
+
 //   getErrorMessage() {
 //     if (this.loanAmount.hasError('required')) {
 //       return 'Loan amount is required.';
