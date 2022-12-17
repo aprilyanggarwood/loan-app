@@ -29,6 +29,7 @@ export class LoanCalculatorComponent implements OnInit {
   loanApp: string;
 
 
+
    /* Initialize Form */
   constructor(private fb: FormBuilder) {
     this.loanApp = "Loan Application"
@@ -46,7 +47,7 @@ export class LoanCalculatorComponent implements OnInit {
       // numOfYears: [ '', [ Validators.required]]
 
 
-      loanAmount: [ '', [ Validators.required, Validators.pattern("^^\\d{1,100}(\\.\\d{1,2})?$")] ],
+      loanAmount: [ '', [ Validators.required, Validators.pattern("^^\\d{1,100}(\\.\\d{1,2})?$")]],
       interestRate: [ '', [ Validators.required, Validators.pattern("^^\\d{1,2}(\\.\\d{1,2})?$") ] ],
       numOfYears: [ '', [ Validators.required, Validators.pattern("^[0-9]*$") ] ]
 
@@ -78,8 +79,7 @@ onSubmit(){
   // }
 
 
-
-//   getErrorMessage() {
+//   getErrorMessage(errors) {
 //     if (this.loanAmount.hasError('required')) {
 //       return 'Loan amount is required.';
 //     }
@@ -95,13 +95,14 @@ onSubmit(){
   clearEntries() {
     this.monthlyPayment = 0;
     this.interest = 0;
-    this.loanFormCalculator.reset();
+    this.loanFormCalculator.reset()
 
   }
 
-get form(){
-    return this.loanFormCalculator.controls;
-}
+// get form(){
+  // return this.loanFormCalculator.controls;
+  // return this.loanFormCalculator;
+// }
 
 
 
