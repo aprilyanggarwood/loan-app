@@ -38,16 +38,7 @@ export class LoanCalculatorComponent implements OnInit {
   ngOnInit(): void {
     this.loanFormCalculator = this.fb.group({
 
-      // loanAmount: [''],
-      // interestRate: [''],
-      // numOfYears: ['']
-
-      // loanAmount: [ '', [ Validators.required] ],
-      // interestRate: [ '', [ Validators.required]],
-      // numOfYears: [ '', [ Validators.required]]
-
-
-      loanAmount: [ '', [ Validators.required, Validators.pattern("^^\\d{1,100}(\\.\\d{1,2})?$")]],
+      loanAmount: [ '', [ Validators.required, Validators.pattern("^^\\d{1,100}(\\.\\d{1,2})?$") ]],
       interestRate: [ '', [ Validators.required, Validators.pattern("^^\\d{1,2}(\\.\\d{1,2})?$") ] ],
       numOfYears: [ '', [ Validators.required, Validators.pattern("^[0-9]*$") ] ]
 
@@ -65,6 +56,9 @@ onSubmit(){
   const numOfMonths = (numOfYears * 12);
   const ratePerPeriod = ((interestRate / 100) / 12);
 
+  // let isValid: boolean = loanAmount.valid;
+  // let errors: {[key: string]: any} = loanAmount.errors;
+
   /* Loan rate formula */
   this.monthlyPayment = (loanAmount * (ratePerPeriod * Math.pow((ratePerPeriod + 1), numOfMonths))) / (Math.pow((1 + ratePerPeriod), numOfMonths) - 1);
   this.interest = (this.monthlyPayment * numOfMonths) - loanAmount;
@@ -72,12 +66,28 @@ onSubmit(){
 }
 
 
-  // loanAmount!: number;
-  // let errors: { [key: string]: any } = loanAmount.errors;
-  // hasError(errorCode: string, path?: loanAmount | (loanAmount | number)[]): boolean {
+// Function to clear entries
+clearEntries() {
+  this.monthlyPayment = 0;
+  this.interest = 0;
+  this.loanFormCalculator.reset()
 
-  // }
 
+  }
+
+
+
+// function loanAmountValidator(control: FormControl): { [key: string]: any } {
+//   const value: string = control.value || '';
+//   const valid = value.match('^^\\d{ 1, 100}(\\.\\d{ 1, 2}) ? $');
+//   return valid ? null : (loanAmount: true);
+// }
+
+
+
+
+//   loanAmount!: number;
+//   let errors: { [key: number]: any } = this.loanAmount.errors;
 
 //   getErrorMessage(errors) {
 //     if (this.loanAmount.hasError('required')) {
@@ -91,18 +101,12 @@ onSubmit(){
 
 
 
-  // Function to clear entries
-  clearEntries() {
-    this.monthlyPayment = 0;
-    this.interest = 0;
-    this.loanFormCalculator.reset()
 
-  }
 
-// get form(){
-  // return this.loanFormCalculator.controls;
-  // return this.loanFormCalculator;
-// }
+//  get form(){
+//    return this.loanFormCalculator.controls;
+
+//  }
 
 
 
